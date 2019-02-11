@@ -1,0 +1,93 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+        <button type="button" class="btn btn-success" id="app-position-add">
+          <i class="fa fa-plus"></i>
+          添加
+        </button>
+    </h3>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 100px">
+          公司Logo
+        </th>
+        <th>
+          公司名称
+        </th>
+        <th>
+          职位名称
+        </th>
+        <th>
+          工作地点
+        </th>
+        <th>
+          岗位薪资
+        </th>
+        <th>
+          学&nbsp;&nbsp;历
+        </th>
+        <th>
+          工作经验
+        </th>
+        <th>
+          职位描述
+        </th>
+        <th style="width: 200px">
+          操作
+        </th>
+      </tr>
+      {{each data}}
+      <tr data-id = "{{$value._id}}" data-img= "{{$value.companyLogo}}">
+        <td>
+          <img  width="50" height="50" src="http://localhost:3000/upload/{{$value.companyLogo}}" alt="">
+        </td>
+        <td>
+          {{$value.companyName}}
+        </td>
+        <td>
+          {{$value.positionName}}
+        </td>
+        <td>
+          {{$value.city}}
+        </td>
+        <td>
+          {{$value.salary}}
+        </td>
+        <td>
+          {{$value.degree}}
+        </td>
+        <td>
+          {{$value.experience}}
+        </td>
+        <td>
+          {{$value.description}}
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-edit"></i>
+            修改
+          </button>
+          <button type="button" class="btn btn-danger app-position-remove" >
+            <i class="fa fa-remove"></i>
+            删除
+          </button>
+        </td>
+      </tr>
+    {{/each}}
+    </table>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <li><a href="#">&laquo;</a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+</div>
+<!-- /.box -->
