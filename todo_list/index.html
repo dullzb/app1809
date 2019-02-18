@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO-LIST</title>
+    <link rel="stylesheet" href="https://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<div id="app">
+    <div class="page-group">
+        <div class="page page-current">
+            <!-- header--start -->
+            <header class="bar bar-nav">
+                <a class="icon icon-star pull-left"></a>
+                <a class="icon icon-edit pull-right"></a>
+                <h1 class="title">Todo List</h1>
+            </header>
+            <!-- header--end -->
+            <!-- content-start -->
+            <div class="content">
+                <!-- <input type="text" v-model='addItem'> -->
+                <div class="card" v-for='(todo,index) in todos' :key='todo.id'>
+                    <div class="card-content">
+
+                        <div class="card-content-inner">
+                            <p>
+                                {{todo.content}}
+                            </p>
+                            <div class="button-box">
+                                <button class="button button-success" @click='todo.f=!todo.f' :class='[todo.f?"button-fill":""]'>
+                                    <i class="icon icon-check"></i>
+                                </button>
+                                <button class="button button-danger" @click='check(index)'>
+                                    <i class="icon icon-remove"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-end -->
+
+            <!-- footer--strat -->
+            <ul class="footer-box">
+                <li v-for='tabBar in tabBars' :key='tabBar.id' class='circle' :class='["circle-" + tabBar.style,type == tabBar.text?"circle-fill":""]' @click='type = tabBar.text'>
+                    {{ tabBar.text }}
+                </li>
+            </ul>
+            <!-- footer--end -->
+            <!-- mask--start -->
+            <div class="mask-box" v-show='maskFlag' @click='maskFlag = false'>
+                <div class="mask-bg"></div>
+                <div class="mask-content">
+                    <p>您真的要删除吗？</p>
+                    <button class="button button-primary button-fill pull-right" @click='confirm(activeIndex)'>确定</button>
+                </div>
+            </div>
+            <!-- mask--end -->
+            <!-- textarea--start -->
+            <textarea name="textarea" id="textarea" class="textarea" cols="30" rows="10">
+                
+            </textarea>
+            <!-- textarea--end -->
+        </div>
+    </div>
+</div>
+
+<body>
+
+</body>
+<script src="./js/vue.js"></script>
+<script src="./js/index.js"></script>
+
+</html>
